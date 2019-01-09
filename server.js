@@ -12,8 +12,11 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/newScraper", { useNewUrlParser: true });
+//mongoose.connect("mongodb://localhost/newScraper", { useNewUrlParser: true });
 
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+mongoose.connect(MONGODB_URI);
 
 // var databaseUrl = "newScraper";
 // var collections = ["scrapedNews"];
